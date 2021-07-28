@@ -1,15 +1,6 @@
 <?php 
     require "DbConnect.php";
     $userList= getAllUsers();
-    
-    // if(!empty($_GET['uid']) and !empty($userName))
-    // {
-    //     $response=delete($_GET['uid'],$_GET['userName']);
-    //     if($response)
-    //     {
-    //         $userList= getAllUsers();
-    //     }
-    // }
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,6 +19,12 @@
         <table id="b">
             <tr>
                 <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Gender</th>
+                <th>Date of birth</th>
+                <th>Religion</th>
+                <th>Email</th>
                 <th>UserName</th>
             </tr>
             
@@ -35,6 +32,12 @@
                     for ($i=0; $i < count($userList); $i++) { 
                         echo "<tr>";
                         echo "<td>".$userList[$i]["id"]."</td>";
+                        echo "<td>".$userList[$i]["firstName"]."</td>";
+                        echo "<td>".$userList[$i]["lastName"]."</td>";
+                        echo "<td>".$userList[$i]["gender"]."</td>";
+                        echo "<td>".$userList[$i]["dob"]."</td>";
+                        echo "<td>".$userList[$i]["religion"]."</td>";
+                        echo "<td>".$userList[$i]["email"]."</td>";
                         echo "<td>".$userList[$i]["userName"]."</td>";
                         echo "</tr>";
                     }
@@ -44,65 +47,11 @@
         </table>
         
     
-        <!-- <script>
-            function fetch()
-            {
-                var userName=document.getElementById("userName").value;
-                let b=document.getElementById("b");
-
-                if(userName.length==0)
-                {
-                    //b.innerHTML='Empty'
-                }
-                else
-                {
-                    var XML= new XMLHttpRequest();
-                    XML.onreadystatechange = function()
-                    {
-                        if(XML.status==200)
-                        {
-                            b.innerHTML=XML.responseText; 
-                        }
-                    };
-                    XML.open('GET','Data.php?userName=' +userName,true);
-                    XML.send();
-                }
-                
-               
-
-                
-            }   
-
-        </script> -->
+        
         
         <br>
 
-        <?php 
-            // if(count($userList)>0)
-            // {
-            //     echo "<table>";
-            //     echo "<tr>";
-            //     echo "<th>Id</th>";
-            //     echo "<th>UserName</th>";
-            //     echo "<th>Action</th>";
-            //     echo "</tr>";
-            //     for ($i=0; $i < count($userList); $i++) { 
-            //         echo "<tr>";
-            //         echo "<td>".$userList[$i]["id"]."</td>";
-            //         echo "<td>".$userList[$i]["userName"]."</td>";
-            //         echo "<td>"."<a href='".$_SERVER['PHP_SELF'] . "?uid=".$userList[$i]["id"] 
-            //         . "&userName=" .$userList[$i]["userName"]."' >Delete</a>"."</td>";
-            //         echo "</tr>";
-            //     }
-            //     echo "</table>";
-            // }
-            // else
-            // {
-            //     echo "<h2>No record founds</h2>";
-            // }
-
-            
-        ?>
+       
         <br>
         <a href="Home.php">Home</a>
         <br>

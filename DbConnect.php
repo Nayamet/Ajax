@@ -39,7 +39,7 @@ function delete($uid,$userName)
 function getAllUsers()
 {
     $connection=connection();
-    $sql=$connection->prepare("SELECT id,userName FROM users");
+    $sql=$connection->prepare("SELECT * FROM users");
     $sql->execute();
     $response=$sql->get_result();
     return $response->fetch_all(MYSQLI_ASSOC);
@@ -48,7 +48,7 @@ function getAllUsers()
 function getUser($userName)
 {
     $connection=connection();
-    $sql=$connection->prepare("SELECT id,userName FROM users WHERE userName = ?");
+    $sql=$connection->prepare("SELECT * FROM users WHERE userName = ?");
     $sql->bind_param("s",$userName);
     $sql->execute();
     $response=$sql->get_result();
